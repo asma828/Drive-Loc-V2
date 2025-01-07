@@ -101,3 +101,58 @@ ALTER TABLE reservation
 
    INSERT INTO reviews (vehicle_id, rating, comment, user_id, created_at, deleted_at)
      VALUES (9, 5, 'Amazing car, great performance!', 8, NOW(), NULL);
+
+     /* version 2 */
+CREATE TABLE themes (                         
+   id_theme INT AUTO_INCREMENT PRIMARY KEY,  
+   name VARCHAR(100) NOT NULL                
+);                                            
+
+CREATE TABLE articles (
+  id_article INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(200) NOT NULL,
+  content TEXT NOT NULL,
+  image VARCHAR(255),
+  id_theme INT NOT NULL,
+  id_user INT NOT NULL,
+  status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_theme) REFERENCES themes(id_theme) ON DELETE CASCADE,
+  FOREIGN KEY (id_user) REFERENCES utilisateur(id_user) ON DELETE CASCADE
+);
+
+CREATE TABLE comments (
+  id_comment INT AUTO_INCREMENT PRIMARY KEY,
+  id_article INT NOT NULL,
+  id_user INT NOT NULL,
+  content TEXT NOT NULL,
+  is_deleted BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_article) REFERENCES articles(id_article) ON DELETE CASCADE,
+  FOREIGN KEY (id_user) REFERENCES utilisateur(id_user) ON DELETE CASCADE
+ );
+
+CREATE TABLE tags (
+  id_tag INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
+
+CREATE TABLE articles_tags (
+ id_article INT NOT NULL,
+ id_tag INT NOT NULL,
+ PRIMARY KEY (id_article, id_tag),
+ FOREIGN KEY (id_article) REFERENCES articles(id_article) ON DELETE CASCADE,
+ FOREIGN KEY (id_tag) REFERENCES tags(id_tag) ON DELETE CASCADE
+ );
+
+CREATE TABLE favorites (
+ id_favorit INT AUTO_INCREMENT PRIMARY KEY,
+ id_article INT NOT NULL,
+ id_user INT NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY (id_article) REFERENCES articles(id_article) ON DELETE CASCADE,
+ FOREIGN KEY (id_user) REFERENCES utilisateur(id_user) ON DELETE CASCADE
+ );
+
+
