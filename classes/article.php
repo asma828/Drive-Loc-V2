@@ -46,6 +46,16 @@ public function getUserId(){
     return $this->id_user;
 }
 
+public function getAllArticles() {
+    $query = "SELECT A.*, t.name as theme,u.name
+              FROM articles A
+              JOIN themes t ON A.id_theme = t.id_theme
+              JOIN utilisateur u ON A.id_user=u.id_user "; 
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
 
 }
 ?>
