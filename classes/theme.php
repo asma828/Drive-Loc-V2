@@ -21,5 +21,12 @@ public function getImage(){
     return $this->image;
 }
 
+public function getAllThemes() {
+    $query = "SELECT * from themes"; 
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
 
 }
