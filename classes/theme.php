@@ -28,5 +28,11 @@ public function getAllThemes() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-
+public function getArticleByTheme($id_theme){
+        $query = "SELECT * FROM articles WHERE id_theme = :id_theme";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id_theme', $id_theme);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
