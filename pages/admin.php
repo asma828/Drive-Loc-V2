@@ -62,10 +62,25 @@ $numberofreviews=$reviewsObj->numberofreviews();
                 <i class="fas fa-star"></i>
                 <span>Avis</span>
             </a>
-            
+            <a href="../blog/dash.php" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">
+                <i class="fas fa-star"></i>
+                <span>Blog</span>
+            </a>
+            <a href="../blog/AdminArticle.php" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">
+            <i class="fas fa-newspaper w-5"></i>
+                <span>Article</span>
+            </a>
+            <a href="../blog/AdminComment.php" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">
+            <i class="fas fa-comments w-5"></i>
+                <span>Commentaires</span>
+            </a>
+            <a href="../blog/AdminTags.php" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">
+            <i class="fas fa-tags w-5"></i>
+                <span>Tags</span>
+            </a>
         </nav>
     </div>
-
+    <i class="fas fa-tags w-5"></i>
     <!-- Main Content -->
     <div class="ml-64 p-8">
         <!-- Header -->

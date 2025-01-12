@@ -81,7 +81,8 @@ if ($_SESSION['role'] == 2) {
                     <div class="hidden md:flex space-x-8">
                         <a href="vehicles.php" class="text-sm tracking-wider hover:text-gold transition-colors duration-300">VÉHICULES</a>
                         <a href="affichereservation.php" class="text-sm tracking-wider hover:text-gold transition-colors duration-300">RÉSERVER</a>
-                        <a href="reviews.php" class="text-sm tracking-wider hover:text-gold transition-colors duration-300">AVIS</a>
+                        <a href="../blog/blog.php" class="text-sm tracking-wider hover:text-gold transition-colors duration-300">BLOG</a>
+                        <a href="../blog/themes.php" class="text-sm tracking-wider hover:text-gold transition-colors duration-300">THEME</a>
                     </div>
                 </div>
                 <div class="flex items-center space-x-8">

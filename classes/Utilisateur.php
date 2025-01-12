@@ -39,7 +39,7 @@ class Utilisateur {
     }
 
     public function connexion($email, $password) {
-        // Use a named placeholder for the email
+        // i use a named placeholder for the email
         $sql = "SELECT * FROM utilisateur WHERE email = :email";
         $stmt = $this->db->prepare($sql);
     

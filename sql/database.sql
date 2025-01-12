@@ -155,4 +155,26 @@ CREATE TABLE favorites (
  FOREIGN KEY (id_user) REFERENCES utilisateur(id_user) ON DELETE CASCADE
  );
 
+ INSERT INTO articles (title, content, image, id_theme, id_user) VALUES
+     ('Les 5 meilleures destinations de voyage en voiture', 'Voyager, c/est faire face à des situations nouvelles et inconnues, sortir de sa zone de confort, devoir composer avec des situations inédites', '../assets/images/voyages1.jpg', 1,5);
 
+INSERT INTO themes (name) VALUES
+ ('Voyages'),
+ ('Entretien de voiture'),
+ ('Nouveaux modèles'),
+ ('Conseils de conduite');
+
+Alter table themes
+  ADD COLUMN image varchar(255);
+
+INSERT INTO tags (name) VALUES
+('Voyage'),
+('Écologie'),
+('Électrique'),
+('Hiver');
+
+INSERT INTO article_tags (article_id, tag_id) VALUES
+(4, 1), 
+(5, 4), 
+(3, 2), 
+(3, 3);
