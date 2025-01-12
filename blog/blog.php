@@ -121,9 +121,9 @@ $totalPages = ceil($totalArticles / $perPage);
             Tous
         </a>
         <?php foreach($allTags as $tag): ?>
-            <a href="?tag=<?= $tag['id_tag'] ?><?= $search ? '&search='.urlencode($search) : '' ?>&per_page=<?= $perPage ?>" 
-               class="px-4 py-2 rounded <?= $tagId ===(int) $tag['id_tag'] ? 'bg-black text-white' : 'border border-black' ?>">
-                <?= htmlspecialchars($tag['name']) ?>
+            <a href="?tag=<?= $tag->getId() ?><?= $search ? '&search='.urlencode($search) : '' ?>&per_page=<?= $perPage ?>" 
+               class="px-4 py-2 rounded <?= $tagId ===(int) $tag->getId() ? 'bg-black text-white' : 'border border-black' ?>">
+                <?= htmlspecialchars($tag->getName()) ?>
             </a>
         <?php endforeach; ?>
     </div>
